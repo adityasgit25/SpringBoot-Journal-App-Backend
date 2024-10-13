@@ -51,7 +51,7 @@ public class JournalEntryControllerV2 {
     }
 
     // optional is a box, it can contain/ does not contain the thing we want
-    // Response Entity lets u send the HTTP Status code!!
+    // Response Entity lets u send the HTTP Status code along with the data that we have to send!!
     @GetMapping("id/{myId}")
     public ResponseEntity<JournalEntry> getJournalEntryById(@PathVariable ObjectId myId) {
         Optional<JournalEntry> journalEntry = Optional.ofNullable((journalEntryService.findById(myId).orElse(null)));

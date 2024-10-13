@@ -3,7 +3,7 @@ package com.adityamaheshwari.journalApp.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@RestController // it states that it is not just an another class, its a rest-api controller.
 public class HealthCheck {
 
     // get call

@@ -6,6 +6,7 @@ import com.adityamaheshwari.journalApp.repository.JournalEntryRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
@@ -13,11 +14,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
+@Service // for denoting that the class is of service type.
 public class JournalEntryService {
-    @Autowired
+    @Autowired // for using the mongoDB
     private JournalEntryRepository journalEntryRepository;
 
-    @Autowired
+    @Autowired // for using the mongoDB
     private UserService userService;
 
     @Transactional // this basically means that all are successful then ok otherwise it will rollback
@@ -45,6 +47,8 @@ public class JournalEntryService {
     public List<JournalEntry> getAll() {
         return journalEntryRepository.findAll(); // using predefined functions of mongodb.
     }
+
+    // it may be possible that we didn't find any id(it can be null also), so that's why using Optional.
     public Optional<JournalEntry> findById(ObjectId id) {
         return journalEntryRepository.findById(id);
     }
